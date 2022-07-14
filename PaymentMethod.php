@@ -29,7 +29,6 @@ class PaymentMethod {
     {   
         $cardDate = DateTime::createFromFormat('m-y', $expDate);
         $dateNow = new DateTime('now');
-        var_dump($cardDate > $dateNow);
         if($cardDate > $dateNow){
             $this->expDate = $expDate;
         }
