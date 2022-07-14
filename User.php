@@ -8,6 +8,7 @@ class User {
     protected $cart = [];
     protected $registered;
     private $dicount;
+    private $paymentMethod;
 
     public function __construct ($_username, $_email, $_registered){
         $this->setRegistered($_registered);
@@ -76,6 +77,15 @@ class User {
             $this->dicount = 0.2;
         } else {
             $this->discount = 0;
+        }
+
+        return $this;
+    }
+
+    public function setPaymentMethod($paymentMethod)
+    {
+        if ($paymentMethod instanceof PaymentMethod){
+            $this->paymentMethod = $paymentMethod;
         }
 
         return $this;

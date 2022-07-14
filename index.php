@@ -1,8 +1,10 @@
 <?php
 require_once 'Product.php';
 require_once 'Food.php';
-require_once 'User.php';
 require_once 'Game.php';
+require_once 'PaymentMethod.php';
+require_once 'User.php';
+
 
 $food1 = new Food('bocconcini', 7, '10/24');
 $food2 = new Food('ravioli per gatti', 4.5, '01/23');
@@ -20,7 +22,7 @@ var_dump($game2);
 
 $user1->setCart($food2);
 $user1->setCart($food1);
-
+$user1->setPaymentMethod(new PaymentMethod('647362930', '10-22'));
 var_dump($user1);
 
 ?>
