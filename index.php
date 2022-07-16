@@ -4,6 +4,7 @@ require_once 'Food.php';
 require_once 'Game.php';
 require_once 'PaymentMethod.php';
 require_once 'User.php';
+require_once 'Cart.php';
 
 
 $food1 = new Food('bocconcini', 7, '10/24');
@@ -15,14 +16,10 @@ $game2 = new Game('pallina', 3, 0.2);
 $user1 = new User("andrei", "andrei@todi.gmail", true);
 
 
-var_dump($food1);
-var_dump($food2);
-var_dump($game1);
-var_dump($game2);
+$user1->cart->addProductToList($game2, 3);
+$user1->cart->addProductToList($food2, 5);
 
-$user1->setCart($food2);
-$user1->setCart($food1);
-$user1->setPaymentMethod(new PaymentMethod('647362930', '10-22'));
-var_dump($user1);
+
+var_dump($user1->cart->getProductList());
 
 ?>

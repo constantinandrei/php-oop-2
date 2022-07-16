@@ -5,7 +5,7 @@ require_once 'Product.php';
 class User {
     protected $username;
     protected $email;
-    protected $cart = [];
+    public Cart $cart;
     protected $registered;
     private $dicount;
     private $paymentMethod;
@@ -15,6 +15,7 @@ class User {
         $this->setEmail($_email);
         $this->setUsername($_username);
         $this->setDicount($_registered);
+        $this->setCart();
     }
 
     public function getEmail()
@@ -58,10 +59,9 @@ class User {
         return $this->cart;
     }
 
-    public function setCart($product)
+    public function setCart()
     {
-        if ($product instanceof Product)
-        $this->cart[] = $product;
+        $this->cart = new Cart();
 
         return $this;
     }
@@ -82,14 +82,6 @@ class User {
         return $this;
     }
 
-    public function setPaymentMethod($paymentMethod)
-    {
-        if ($paymentMethod instanceof PaymentMethod){
-            $this->paymentMethod = $paymentMethod;
-        }
-
-        return $this;
-    }
 }
 
 ?>
