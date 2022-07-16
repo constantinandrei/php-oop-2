@@ -27,12 +27,8 @@ class PaymentMethod {
 
     public function setExpDate($expDate)
     {   
-        $cardDate = DateTime::createFromFormat('m-y', $expDate);
-        $dateNow = new DateTime('now');
-        if($cardDate > $dateNow){
-            $this->expDate = $expDate;
-        }
-
+        $this->expDate = $expDate;
+        
         return $this;
     }
 }
